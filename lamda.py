@@ -63,9 +63,9 @@ def state_save_without_tags(name):
     except ssm.exceptions.ParameterNotFound:
         count = 0
     count+=1
-    if(count > 6):
+    if(count >= 7):
         ssm.delete_parameter(Name = name)
-        return True
+        return 7
     else:
         ssm.put_parameter(
             Name=name,
@@ -76,7 +76,7 @@ def state_save_without_tags(name):
             AllowedPattern='string',
             Tier='Standard'
         )
-        return False
+        return int(count)
 
 def lambda_handler(event, context):
     AWS_REGION = 'us-east-1'
@@ -108,15 +108,16 @@ def lambda_handler(event, context):
                 log_details+=f"Instance deleted as is None : {instance.id}\n"
 
             if  is_created_by and (not is_name or not is_environment):
-                    if state_save_without_tags(instance.id) :
+                    count = state_save_without_tags(instance.id)
+                    if count == 7:
                         data = f'''<br><br> InstanceId = {instance.id} is being terminated since the 
                                 required tags has not been added!!!!<br><br>'''
-                        subject=f"Instance Termination{instance.id}"
+                        subject=f"Instance Termination:{instance.id}"
                         
                         mail_to_user([subject,data] , mail_id)
                         instance.terminate()
                         log_details+= f"Terminated Instace:{instance.id}\n"
-                    else:
+                    elif count ==1:
                         data = f"<br><br> InstanceId = {instance.id}<br><br>"
                         if not is_name:
                             data+= "Add 'Name' tag to the instance<br>"

@@ -9,7 +9,7 @@ Develop a simple python serverless lambda function which would terminate all EC2
 Step1:Goto iam console
 Step2:Create a lamda function role from iam console
 Step3:required policies
-    >AmazonEC2ReadOnlyAccess
+    >AmazonEC2FullAccess
     >AmazonSSMFullAccess
     >AmazonSESFullAccess
 Step4:Name the role(assuming "lamda_ec2_tag_checker") and save
