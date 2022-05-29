@@ -4,7 +4,6 @@
 Develop a simple python serverless lambda function which would terminate all EC2 instances which don’t follow a tagging criteria. (A free tier AWS account would work).
 
 ##Deployment steps
-***
 
 Step1:Goto iam console
 Step2:Create a lamda function role from iam console
@@ -60,7 +59,6 @@ Step15:Goto your lamda function code
 Step16:check mail to confirm it work at the specified time when the rule is created 
         if an instance follows the parameters int he question 
 
-***
 
 ##NOTE:
 Here I assumed the ec2 instances are already created and the mail id of the 
