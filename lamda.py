@@ -102,7 +102,7 @@ def lambda_handler(event, context):
                         if tag['Key'] == 'Name' :
                             is_name = True
             
-            # assuming if created by tag == none we need to delete the instance
+            # assuming if tag "created by" == none we need to delete the instance
             else:
                 instance.terminate()
                 log_details+=f"Instance deleted as is None : {instance.id}\n"
