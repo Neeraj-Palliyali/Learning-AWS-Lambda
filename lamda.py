@@ -16,8 +16,9 @@ def mail_to_user(data, mail_id):
     """
     ses = boto3.client('ses')
     try:
+        # TODO USER MAIL ID
         ses.send_email(
-        Source='neerajpalliyali@gmail.com',
+        Source='test@gmail.com',
         Destination={
             'ToAddresses': [
                 mail_id,
