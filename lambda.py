@@ -123,7 +123,7 @@ def lambda_handler(event, context):
                             data+= "Add 'Name' tag to the instance<br>"
                         if not is_environment:
                             data+= "Add 'Environment' tag to the instance<br>"
-                        subject="Add the required tags for the instance"
+                        subject=f"Add the required tags for the instance:{instance.id}"
                         mail_to_user([subject,data] , mail_id)
                         log_details+= f"send mail to owner of:{instance.id}\n"
                          
