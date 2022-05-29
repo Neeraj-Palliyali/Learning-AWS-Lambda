@@ -7,25 +7,25 @@ Develop a simple python serverless lambda function which would terminate all EC2
 ***
 <pre>
 Step1:Goto iam console
-Step2:Create a lamda function role from iam console
+Step2:Create a lambda function role from iam console
 Step3:required policies
     >AmazonEC2FullAccess
     >AmazonSSMFullAccess
     >AmazonSESFullAccess
-Step4:Name the role(assuming "lamda_ec2_tag_checker") and save
+Step4:Name the role(assuming "lambda_ec2_tag_checker") and save
 
-Step5:Goto AWS Lamda functions page
+Step5:Goto AWS Lambda functions page
 Step6:Create an function 
     >name (any name)(assuming ec2_tag_checker)
     >runtime(Python 3.7)
-    >execution role : lamda_ec2_tag_checker
+    >execution role : lambda_ec2_tag_checker
     >create function
 
 
 Step7:Add test even without any parameters to just check(optional)
     >test 
-    >you can see "hello from Lamda!"
-Step8:Copy the code from lamda.py(this repo) and replace the code on the lamda function page
+    >you can see "hello from Lambda!"
+Step8:Copy the code from lambda.py(this repo) and replace the code on the lamda function page
     >save
     >deploy
 
@@ -50,7 +50,7 @@ Step13:Goto the mail id inbox you will have a mail from aws click on the
 Step14:Check on the SES -> "Verified identities" and check if the mail id
        added is in "Verified" status if so copy the mail-id
 
-Step15:Goto your lamda function code
+Step15:Goto your lambda function code
     >goto the #TODO
     >change Source='test@gmail.com' to Source=mail-id (mail-id copied from last step)
     >remove the todo line
