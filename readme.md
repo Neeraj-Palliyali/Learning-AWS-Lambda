@@ -25,7 +25,7 @@ Step6:Create an function
 Step7:Add test even without any parameters to just check(optional)
     >test 
     >you can see "hello from Lamda!"
-Step8:Copy the code from lamda.py(this repo) and replace the code on the lamda function page
+Step8:Copy the code from [lamda.py](https://github.com/Neeraj-Palliyali/opslyft/blob/master/lamda.py)(this repo) and replace the code on the lamda function page
     >save
     >deploy
 
